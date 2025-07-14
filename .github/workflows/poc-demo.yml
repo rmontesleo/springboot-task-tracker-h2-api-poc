@@ -143,3 +143,4 @@ jobs:
           summary: true
           dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+          github-token: ${{ secrets.POC_TOKEN }}
