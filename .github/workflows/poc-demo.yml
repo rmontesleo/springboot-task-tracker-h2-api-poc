@@ -141,3 +141,5 @@ jobs:
           image: ${{ env.PROJECT_NAME }}:${{ github.sha}}
           sarif-file: docker-cve-report.sarif
           summary: true
+          dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}

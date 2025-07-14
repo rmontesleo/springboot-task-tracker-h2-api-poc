@@ -2,6 +2,7 @@
 
 ## GitHub & GitHub Actions
 - [GitHub: build-push-action](https://github.com/docker/build-push-action)
+- [GitHub: Docker Scout](https://github.com/marketplace/actions/docker-scout)
 - [GitHub: harness migrate](https://github.com/harness/harness-migrate)
 - [JFrog CLI](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli)
 - [GitHub: setup-jfrog-cli](https://github.com/jfrog/setup-jfrog-cli/tree/master)
