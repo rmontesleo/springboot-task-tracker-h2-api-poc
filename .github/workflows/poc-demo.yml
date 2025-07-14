@@ -137,6 +137,6 @@ jobs:
         env:
             DOCKER_BUILDKIT: 1  # Ensure Docker is running in buildkit mode
         run: |
-          docker scout cves archive://dowloaded-artifacts/docker-image/${{ env.PROJECT_NAME}}.tar  --format sarif --output  docker_scout_report.sarif
+          docker scout cves --format sarif --output  docker_scout_report.sarif  archive://dowloaded-artifacts/docker-image/${{ env.PROJECT_NAME}}.tar 
         
       
