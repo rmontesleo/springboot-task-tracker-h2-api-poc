@@ -8,17 +8,17 @@ docker build -t  <IMAGE_NAME>:<VERSION>  .
 ```
 
 ### Create the image for the project
-```bash
-docker build -t  springboot-todo-h2-api-docker:0.1  .
+```bash 
+docker build -t  springboot-task-tracker-h2-api-poc:0.1  .
 ```
 
 ### Create the image for production
 ```bash
 # Build on Linux
-docker build --file=./docker/Dockerfile  --target production  -t springboot-todo-h2-api-docker:v1 .
+docker build --file=./Dockerfile  --target production  -t springboot-task-tracker-h2-api-poc:01 .
 
 # Build on in MacOS
-docker build --file=./docker/Dockerfile  --target production --platform=linux/amd64  -t  springboot-todo-h2-api-docker:0.1  .
+docker build --file=./Dockerfile  --target production --platform=linux/amd64  -t  springboot-task-tracker-h2-api-poc:0.1  .
 ```
 
 

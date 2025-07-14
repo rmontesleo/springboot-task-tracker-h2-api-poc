@@ -18,8 +18,9 @@ k8s/
 # 
 setup/
 
-#
+# Avoid target folder, except the jar file
 target/
+!target/*.jar
 
 #
 .env
