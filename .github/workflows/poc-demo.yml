@@ -131,16 +131,21 @@ jobs:
           ls
           ls ./dowloaded-artifacts/docker-image/
           ls ./dowloaded-artifacts/jar/
-          docker images  
+          docker images
+          
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          registry: docker.io                   # (optional, docker.io is the default)
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}    
 
       - name: Docker Scout Scan (CVES)
         id: docker-scout-cves
         uses: docker/scout-action@v1
         with:
-          command: cve
+          command: cves
           image: ${{ env.PROJECT_NAME }}:${{ github.sha}}
           sarif-file: docker-cve-report.sarif
           summary: true
-          dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
           github-token: ${{ secrets.POC_TOKEN }}
