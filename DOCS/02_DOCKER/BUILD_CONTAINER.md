@@ -97,3 +97,14 @@ docker login
 ```bash
 docker push  $USER_REGISTRY_NAME/springboot-todo-h2-api-docker:0.1
 ```
+
+
+### Docker scout
+```bash
+# in the same directory where Dockerfile is placed
+
+docker scout cves --format sarif --output  docker_scout_report.sarif
+
+
+
+```

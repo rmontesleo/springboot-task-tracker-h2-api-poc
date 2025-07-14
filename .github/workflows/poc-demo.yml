@@ -99,4 +99,33 @@ jobs:
             path: ${{ env.PROJECT_NAME }}.tar
             retention-days: 7
 
-  
+  # Job 2: Run Security Scans ()
+  # These are often part of a 'security' gate can run in parallel with quality/vulnerability scans.
+  security-scans:
+    runs-on: ubuntu-latest
+    needs: test_and_build 
+    continue-on-error: true
+
+    steps:
+      - name: Download Source Code
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.PROJECT_NAME }}-source-code
+          path: .
+
+      - name: Download Docker Image Tarball
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.PROJECT_NAME }}-docker-image
+          path: ./dowloaded-artifacts/docker-image/
+
+      - name: Load Docker Image
+        run: docker load -i ./dowloaded-artifacts/docker-image/${{env.PROJECT_NAME}}.tar
+
+      - name: Docker Scout Scan (CVES)
+        env:
+            DOCKER_BUILDKIT: 1  # Ensure Docker is running in buildkit mode
+        run: |
+          docker scout cves --format sarif --output  docker_scout_report.sarif
+        
+      
