@@ -4,6 +4,10 @@
 - [GitHub: build-push-action](https://github.com/docker/build-push-action)
 - [GitHub: Docker Scout](https://github.com/marketplace/actions/docker-scout)
 - [Snyk Maven (3-jdk-21) Action](https://github.com/snyk/actions/tree/master/maven-3-jdk-21)
+- [Code scanning: CodeQL Action v2 is now retired](https://github.blog/changelog/2025-01-10-code-scanning-codeql-action-v2-is-now-deprecated/)
+
+
+
 
 - [JFrog CLI](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli)
 - [GitHub: setup-jfrog-cli](https://github.com/jfrog/setup-jfrog-cli/tree/master)
