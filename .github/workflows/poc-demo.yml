@@ -108,11 +108,8 @@ jobs:
 
     steps:
       - name: Download Source Code
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.PROJECT_NAME }}-source-code
-          path: .
-
+        uses: actions/checkout@v4
+        
       - name: Download Docker Image Tarball
         uses: actions/download-artifact@v4
         with:
