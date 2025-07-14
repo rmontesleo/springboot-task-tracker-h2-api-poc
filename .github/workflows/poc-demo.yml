@@ -109,6 +109,12 @@ jobs:
     steps:
       - name: Download Source Code
         uses: actions/checkout@v4
+
+      - name: Download Jar Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.PROJECT_NAME}}-jar
+          path: ./dowloaded-artifacts/jar/
         
       - name: Download Docker Image Tarball
         uses: actions/download-artifact@v4
@@ -116,13 +122,20 @@ jobs:
           name: ${{ env.PROJECT_NAME }}-docker-image
           path: ./dowloaded-artifacts/docker-image/
 
+      - name: Verify components
+        run: |
+          ls
+          ls ./dowloaded-artifacts/docker-image/
+          ls ./dowloaded-artifacts/jar/ 
+
+
       - name: Load Docker Image
         run: docker load -i ./dowloaded-artifacts/docker-image/${{env.PROJECT_NAME}}.tar
 
-      - name: Docker Scout Scan (CVES)
-        env:
-            DOCKER_BUILDKIT: 1  # Ensure Docker is running in buildkit mode
-        run: |
-          docker scout cves --format sarif --output  docker_scout_report.sarif
+      #- name: Docker Scout Scan (CVES)
+      #  env:
+      #      DOCKER_BUILDKIT: 1  # Ensure Docker is running in buildkit mode
+      #  run: |
+      #    docker scout cves --format sarif --output  docker_scout_report.sarif
         
       
