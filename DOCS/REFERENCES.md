@@ -3,7 +3,8 @@
 ## GitHub & GitHub Actions
 - [GitHub: build-push-action](https://github.com/docker/build-push-action)
 - [GitHub: Docker Scout](https://github.com/marketplace/actions/docker-scout)
-- [GitHub: harness migrate](https://github.com/harness/harness-migrate)
+- [Snyk Maven (3-jdk-21) Action](https://github.com/snyk/actions/tree/master/maven-3-jdk-21)
+
 - [JFrog CLI](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli)
 - [GitHub: setup-jfrog-cli](https://github.com/jfrog/setup-jfrog-cli/tree/master)
 - [GitHub: JFrog Project examples](https://github.com/jfrog/project-examples/tree/master)
@@ -17,6 +18,11 @@
 - [](https://spring.io/guides/gs/rest-service-cors/)
 - [](https://www.baeldung.com/spring-cors)
 - [](https://www.demo2s.com/java/spring-corsregistry-addmapping-string-pathpattern.html)
+
+
+
+### Harness
+- [GitHub: harness migrate](https://github.com/harness/harness-migrate)
 
 
 ### Spring Annotations

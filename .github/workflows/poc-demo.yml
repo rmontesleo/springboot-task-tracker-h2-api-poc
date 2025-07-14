@@ -148,4 +148,12 @@ jobs:
           image: ${{ env.PROJECT_NAME }}:${{ github.sha}}
           sarif-file: docker-cve-report.sarif
           summary: true
-          github-token: ${{ secrets.POC_TOKEN }}
+          github-token: ${{ secrets.POC_TOKEN }} # Verify if this token is required
+
+      - name: Run Snyk to check vulnerabilities
+        uses: snyk/actions/maven-3-jdk-21@master
+        continue-on-error: true # To make sure that SARIF upload gets called
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif  
