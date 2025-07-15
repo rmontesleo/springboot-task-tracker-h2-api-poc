@@ -156,9 +156,23 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif  
+          args: --sarif-file-output=snyk-action-report.sarif  
 
-      - name: Upload Snyk Result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
+      # TODO: Fix what is missing to upload this repo
+      # Resource not accessible by integration 
+      #- name: Upload Snyk Result to GitHub Code Scanning
+      #  uses: github/codeql-action/upload-sarif@v3
+      #  with:
+      #    sarif_file: snyk.sarif
+
+      - name: Upload Securitgy Scan Reports
+        uses: actions/upload-artifact@v4
         with:
-          sarif_file: snyk.sarif
+          name: security-scan-reports
+          path: |
+            snyk-action-report.sarif
+            docker-cve-report.sarif
+          retention-days: 5
+
+
+          
