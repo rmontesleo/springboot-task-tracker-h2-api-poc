@@ -110,6 +110,9 @@ jobs:
       - name: Download Source Code
         uses: actions/checkout@v4
 
+
+      # Verify if compilation is not required  
+
       - name: Download Jar Artifact
         uses: actions/download-artifact@v4
         with:
@@ -156,7 +159,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk-action-report.sarif  
+          args: --sarif-file-output=snyk-action-report.sarif 
+          
+      - name: Perform CodeQL ANalysis
+        uses: github/codeql-action/analyze@v3
+        
 
       # TODO: Fix what is missing to upload this repo
       # Resource not accessible by integration 
