@@ -199,7 +199,7 @@ jobs:
           image-ref: '${{env.PROJECT_NAME}}:${{needs.test_and_build.outputs.docker_image_tag}}'
           format: 'json'
           output: 'trivy_image_report.json'
-          severity: 'HIGHT,CRITICAL'
+          severity: 'HIGH,CRITICAL'
 
   
   # Job 4: SonarQube Scan (often an independent, possibly long-running quality gate)
