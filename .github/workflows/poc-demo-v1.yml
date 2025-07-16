@@ -4,6 +4,8 @@ name: PoC CI Demo
 permissions:
   contents: read
   packages: write
+  security-events: write
+  actions: read
 
 on:
   push:
