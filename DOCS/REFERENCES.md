@@ -9,7 +9,8 @@
 - [Error: "No source code was seen during the build"](https://docs.github.com/en/code-security/code-scanning/troubleshooting-code-scanning/no-source-code-seen-during-build)
 - [Quickstart: Create a security scan GitHub workflow](https://learn.microsoft.com/en-us/dotnet/devops/dotnet-secure-github-action?utm_source=chatgpt.com)
 - [About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)
-
+- [Use GITHUB_TOKEN in workflows](https://docs.github.com/en/actions/tutorials/use-github_token-in-workflows)
+- [CodeQL code scanning for compiled languages](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin)
 
 
 
