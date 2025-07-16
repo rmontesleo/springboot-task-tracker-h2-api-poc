@@ -16,7 +16,6 @@
 	<description>Task Tracker API with Spring Boot and H2 Database for quick PoC purposes</description>
 	<properties>
 		<java.version>21</java.version>
-		<sonar.organization>poc-devsecops</sonar.organization>
 	</properties>
 	<dependencies>
 

@@ -202,13 +202,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.POC_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
         run: |
           # Re-compile to ensure classes are present for Sonar ()
-          mvn clean install -DskipTests
+          echo "mvn clean install..."
+          mvn clean install -Dmaven.test.skip=true
+
+          echo "SONAR HOST ${{env.SONAR_HOST_URL}}"
+          echo "SONAR PROJECT ${{env.PROJECT_NAME}}"
+          echo "Execute sonar"
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey=${{ env.PROJECT_NAME }}
-            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
-            -Dsonar.token=${{ env.SONAR_TOKEN }}
+            -Dsonar.organization=${{env.SONAR_ORGANIZATION}} \
+            -Dsonar.projectKey=${{ env.PROJECT_NAME }} \
+            -Dsonar.host.url=${{ env.SONAR_HOST_URL }} \
+            -Dsonar.token=${{ env.SONAR_TOKEN }} \
             -Dsonar.java.binaries=target/classes  
 
       
