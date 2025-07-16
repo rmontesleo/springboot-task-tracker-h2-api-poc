@@ -174,7 +174,7 @@ jobs:
             docker-cve-report.sarif
           retention-days: 5
 
-  # Job 3: SonarQube Scan (often an independent, possibly long-running quality gate)
+  # Job 4: SonarQube Scan (often an independent, possibly long-running quality gate)
   quality-scan:
     runs-on: ubuntu-latest
     needs: test_and_build
@@ -196,5 +196,19 @@ jobs:
           distribution: 'temurin'
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'
+
+      - name: SonarQube Scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.POC_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+          # Re-compile to ensure classes are present for Sonar ()
+          mvn clean install -DskipTest
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=${{ env.PROJECT_NAME }}
+            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
+            -Dsonar.token=${{ env.SONAR_TOKEN }}
+            -Dsonar.java.binaries=target/classes  
 
       
