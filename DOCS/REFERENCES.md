@@ -6,6 +6,11 @@
 - [Snyk Maven (3-jdk-21) Action](https://github.com/snyk/actions/tree/master/maven-3-jdk-21)
 - [Code scanning: CodeQL Action v2 is now retired](https://github.blog/changelog/2025-01-10-code-scanning-codeql-action-v2-is-now-deprecated/)
 - [Keeping your actions up to date with Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)
+- [Error: "No source code was seen during the build"](https://docs.github.com/en/code-security/code-scanning/troubleshooting-code-scanning/no-source-code-seen-during-build)
+- [Quickstart: Create a security scan GitHub workflow](https://learn.microsoft.com/en-us/dotnet/devops/dotnet-secure-github-action?utm_source=chatgpt.com)
+- [About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)
+
+
 
 
 
