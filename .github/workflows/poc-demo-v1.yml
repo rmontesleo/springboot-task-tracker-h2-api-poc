@@ -160,10 +160,13 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk-action-report.sarif 
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3    
           
-      - name: Perform CodeQL ANalysis
+      - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-        
+
 
       # TODO: Fix what is missing to upload this repo
       # Resource not accessible by integration 
