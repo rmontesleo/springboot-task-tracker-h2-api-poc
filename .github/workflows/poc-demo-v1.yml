@@ -125,13 +125,7 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'  
 
-      - name: Compile Java Code
-        run: |
-          java -version
-          mvn -version
-          mvn clean compile
-          ls -la ./target    
-
+      
       - name: Download Jar Artifact
         uses: actions/download-artifact@v4
         with:
@@ -189,8 +183,12 @@ jobs:
         with:
           languages: ${{ matrix.language}}
       
-      - name: Autobuild  
-        uses: github/codeql-action/autobuild@v1  
+      - name: Compile Java Code
+        run: mvn clean compile
+
+      # TODO: Verify 
+      #- name: Autobuild  
+      #  uses: github/codeql-action/autobuild@v2  
           
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
