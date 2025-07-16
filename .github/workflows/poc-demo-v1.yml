@@ -201,6 +201,24 @@ jobs:
           output: 'trivy_image_report.json'
           severity: 'HIGH,CRITICAL'
 
+      - name: Aqua Trivy Filesystem Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          format: 'json'
+          output: 'trivy_fs_report.json'
+          severity: 'HIGH,CRITICAL'
+
+      - name: Upload Trivy Repots
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-reports
+          path: |
+            trivy_fs_report.json
+            trivy_image_report.json
+          retention-days: 5
+
+
   
   # Job 4: SonarQube Scan (often an independent, possibly long-running quality gate)
   quality-scan:
