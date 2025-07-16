@@ -181,15 +181,14 @@ jobs:
 
     steps:
       - name: Download Source Code
-        uses: actions/download-artifact@v4
+        uses: actions/checkout@v4
 
       - name: Verify Downloaded Code
         run: |
           echo "checking code"
           ls -la
           echo "verifying current directory"
-          pwd 
-
+          pwd
         
       - name: Set up Java ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v4
