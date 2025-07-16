@@ -206,7 +206,7 @@ jobs:
         run: |
           # Re-compile to ensure classes are present for Sonar ()
           echo "mvn clean install..."
-          mvn clean install -Dmaven.test.skip=true
+          mvn clean install -DskipTests
 
           echo "SONAR HOST ${{env.SONAR_HOST_URL}}"
           echo "SONAR PROJECT ${{env.PROJECT_NAME}}"
