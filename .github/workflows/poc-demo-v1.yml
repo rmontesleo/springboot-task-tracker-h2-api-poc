@@ -1,6 +1,10 @@
 
 name: PoC CI Demo
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
     branches:
